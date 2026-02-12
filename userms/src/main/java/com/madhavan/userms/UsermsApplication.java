@@ -1,13 +1,13 @@
-package com.embarkx.reviewms;
+package com.madhavan.userms;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class  ReviewmsApplication {
+public class UsermsApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ReviewmsApplication.class, args);
+		SpringApplication.run(UsermsApplication.class, args);
 	}
 
 }
