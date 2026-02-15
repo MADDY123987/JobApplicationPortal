@@ -1,18 +1,30 @@
 package com.embarkx.userms.features.authentication.Controller;
 
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.embarkx.userms.features.authentication.Service.AuthenticationService;
+import com.embarkx.userms.features.authentication.dto.AuthenticationRequestBody;
+import com.embarkx.userms.features.authentication.dto.AuthenticationResponseBody;
+import com.embarkx.userms.features.authentication.model.AuthenticationUser;
+import jakarta.validation.Valid;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/authentication")
-public class AuthenticationUser {
+public class AuthenticationController {
+    private final AuthenticationService authenticationService;
 
-    @GetMapping("/user")
-    public  String getUser()
-    {
-        return "User";
+    public AuthenticationController(AuthenticationService authenticationService) {
+        this.authenticationService = authenticationService;
     }
 
+    @GetMapping("/user")
+    public AuthenticationUser getUser()
+    {
+        return authenticationService.getUser("madhavan20041@gmail.com");
+    }
+    @PostMapping("/register")
+    public AuthenticationResponseBody registerPage(@Valid  @RequestBody AuthenticationRequestBody registerRequestBody)
+    {
+        return authenticationService.register(registerRequestBody);
+    }
 }
