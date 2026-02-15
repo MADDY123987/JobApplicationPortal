@@ -49,4 +49,3 @@ public class AuthenticationService {
         return new AuthenticationResponseBody(token,"Authenticated Successfully");
     }
 }
-  
