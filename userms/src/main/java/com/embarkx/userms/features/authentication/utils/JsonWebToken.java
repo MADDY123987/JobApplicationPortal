@@ -21,7 +21,7 @@ public class JsonWebToken {
     }
 
     // ✅ Generate Token
-    public String generateToken(String email) {
+    public static String generateToken(String email) {
         return Jwts.builder()
                 .setSubject(email)
                 .setIssuedAt(new Date())

@@ -20,8 +20,16 @@ public class AuthenticationController {
     @GetMapping("/user")
     public AuthenticationUser getUser()
     {
+
         return authenticationService.getUser("madhavan20041@gmail.com");
     }
+
+    @PostMapping("/login")
+    public AuthenticationResponseBody loginPage(@Valid @RequestBody AuthenticationRequestBody loginRequestBody)
+    {
+        return authenticationService.login(loginRequestBody);
+    }
+
     @PostMapping("/register")
     public AuthenticationResponseBody registerPage(@Valid  @RequestBody AuthenticationRequestBody registerRequestBody)
     {
